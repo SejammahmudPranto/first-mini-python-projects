@@ -1,0 +1,45 @@
+from random import choice
+
+def play(user_choice, c_choice):
+    if user_choice == 'r':
+        if c_choice == 'p':
+            return 'Computer Wins'
+        elif c_choice == 's' :
+            return 'Player Wins'
+        else:
+            return 'Its a Tie'
+    elif user_choice == 'p':
+        if c_choice == 's' :
+            return 'Computer Wins'
+        elif c_choice == 'r' :
+            return 'Player Wins'
+        else:
+            return 'Its a Tie'
+    elif user_choice == 's':
+        if c_choice == 'r':
+            return 'Computer Wins'
+        elif c_choice == 'p' :
+            return 'Player Wins'
+        else:
+            return 'Its a Tie'
+
+def main():
+    while True:
+        user_choice = input("Enter your choice. S for scisor, R for Rock and P for Paper\n").lower()
+        if user_choice == 'p' or user_choice == 'r' or user_choice == 's':
+            break
+        else:
+            print("Wrong choice! Try again!")
+    c_choice = choice(['r', 'p', 's'])
+    print(f"Computer choice is: {c_choice}")
+    win = play(user_choice, c_choice)
+    print(win)
+    again = input("Do you want to play again? Y/N: ").lower()
+    if again == 'y':
+        main()
+    else:
+        exit()
+
+
+
+main()
