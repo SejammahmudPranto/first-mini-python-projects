@@ -1,0 +1,41 @@
+from random import randint
+
+def guess(x, y):
+    random_num = randint(x, y)
+    #user_num = 0
+    user_num = int(input("Enter the number: "))
+    while user_num != random_num:
+        if (user_num < random_num):
+            print("wrong guess. less than the actual number")
+        elif (user_num > random_num):
+            print("wrong guess. higher than the actual number")
+        user_num = int(input("Enter the number again: "))
+    print(f"Voila! you got the right number. The number was {random_num}")
+
+guessing_range_low = int(input("Enter the lower range: "))
+guessing_range_high = int(input("Enter the higher range: "))
+#guess(guessing_range_low, guessing_range_high)
+
+def computer_guess(x, y):
+    low = x
+    high = y
+    feedback = ''
+    while feedback != 'c':
+        if low == high:
+            guess = low
+        else:
+            guess = randint(low, high)
+        print(f"computer guess: {guess}")
+        feedback = input("feedback if too low-(L), if too high-(H) and if correct-(C)").lower()
+        if feedback == 'h':
+            high = guess - 1
+        elif feedback == 'l':
+            low = guess + 1
+        elif feedback == 'c':
+            break
+        else:
+            print("wrong feedback.Enter the feedback again")
+
+    print(f"yay, computer guess the right number {guess}")
+
+computer_guess(guessing_range_low, guessing_range_high)
