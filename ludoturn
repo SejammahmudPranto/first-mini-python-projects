@@ -1,0 +1,17 @@
+from random import randint
+
+def ludo(x, y):
+    choice = randint(x, y)
+    return choice
+
+user_lower = int(input("Enter the lower bound: "))
+user_higher = int(input("Enter the higher bound: "))
+
+play_again = 'y'
+
+while(play_again == 'y'):
+    ludo_turn = ludo(user_lower, user_higher)
+    print(ludo_turn)
+    play_again = input("Do you want to play again? Y/N : ").lower()
+
+print("Thanks for playing")
